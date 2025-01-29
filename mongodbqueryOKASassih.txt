@@ -1,0 +1,7 @@
+db.products.find(
+  {
+    category: "Electronics",
+    price: { $gt: 500 } // $gt means "greater than"
+  },
+  { _id: 0, title: 1, price: 1, category: 1, inStock: 1 } // Include/Exclude specific fields (optional)
+).sort({ price: -1 }) // -1 for descending order
