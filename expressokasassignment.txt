@@ -1,0 +1,17 @@
+const express = require('express');
+const app = express();
+
+app.use(express.json()); // to parse JSON request bodies
+
+app.post('/register', (req, res) => {
+  const { name, email, password } = req.body;
+
+  // In a real application, you would validate the input, 
+  // hash the password, and store the user in a database.
+
+  if (!name || !email || !password) {
+      return res.status(400).json({ message: "Missing required fields" });
+  }
+
+  res.json({ message: 'Registration successful!' });
+});
